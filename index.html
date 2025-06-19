@@ -181,8 +181,8 @@
     .close {
       position: absolute;
       top: 1rem;
-      right: 1rem;
-      font-size: 1.5rem;
+      left: 1rem;
+      font-size: 2rem;
       cursor: pointer;
     }
     .sub-course-card {
@@ -375,20 +375,53 @@
     <div class="container mx-auto px-4 max-w-4xl">
       <h2 class="text-4xl font-bold mb-6 text-blue-900">تواصل معنا</h2>
       <p class="mb-8 text-lg">نسعد بتواصلكم معنا من خلال وسائل التواصل التالية</p>
-      <div class="grid md:grid-cols-3 gap-6 text-right">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="font-semibold text-blue-900 mb-2">الموقع</h3>
-          <p>دبي، الإمارات العربية المتحدة</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="font-semibold text-blue-900 mb-2">رقم الهاتف</h3>
-          <p>+971506770310</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="font-semibold text-blue-900 mb-2">البريد الإلكتروني</h3>
-          <p>Hamad19744@hotmail.com</p>
-        </div>
-      </div>
+<div dir="rtl" class="grid md:grid-cols-3 gap-6 text-right">
+  
+  <!-- Card: Location -->
+  <div class="bg-white p-6 rounded-lg shadow">
+    <div class="flex items-center gap-2 mb-2">
+      <!-- Icon -->
+      <svg class="w-6 h-6 text-blue-900" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M12 11c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 10s8-4.5 8-10A8 8 0 1 0 4 11c0 5.5 8 10 8 10z" />
+      </svg>
+      <h3 class="font-semibold text-blue-900">الموقع</h3>
+    </div>
+    <p>دبي، الإمارات العربية المتحدة</p>
+  </div>
+
+  <!-- Card: Phone -->
+  <div class="bg-white p-6 rounded-lg shadow">
+    <div class="flex items-center gap-2 mb-2">
+      <!-- Icon -->
+      <svg class="w-6 h-6 text-blue-900" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M3 5a2 2 0 012-2h2a1 1 0 011 1v3a1 1 0 01-.293.707l-1 1a16.015 16.015 0 006.586 6.586l1-1A1 1 0 0116 14h3a1 1 0 011 1v2a2 2 0 01-2 2 18 18 0 01-13-13z" />
+      </svg>
+      <h3 class="font-semibold text-blue-900">رقم الهاتف</h3>
+    </div>
+    <p>+971506770310</p>
+  </div>
+
+  <!-- Card: Email -->
+  <div class="bg-white p-6 rounded-lg shadow">
+    <div class="flex items-center gap-2 mb-2">
+      <!-- Icon -->
+      <svg class="w-6 h-6 text-blue-900" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M16 12H8m12-4v8a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h12a2 2 0 012 2z" />
+      </svg>
+      <h3 class="font-semibold text-blue-900">البريد الإلكتروني</h3>
+    </div>
+    <p>Hamad19744@hotmail.com</p>
+  </div>
+
+</div>
+
+
       <!-- Social Media Cards -->
       <h3 class="text-2xl font-semibold text-blue-900 mb-4 mt-8">تابعنا على وسائل التواصل الاجتماعي</h3>
       <div class="grid md:grid-cols-4 gap-6 text-right">
