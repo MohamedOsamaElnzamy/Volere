@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أكاديمية فولير للتطوير المهني</title>
+  <meta name="description" content="اكتشف أكاديمية فولير للتطوير المهني في دبي، نقدم تدريبًا معتمدًا في الإدارة، الفنون، والتكنولوجيا لتعزيز مهاراتك المهنية.">
+  <meta name="keywords" content="تدريب مهني, أكاديمية فولير, تطوير مهارات, دبي, دورات معتمدة">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .course-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+    }
+    .course-card:hover {
+      transform: translateY(-10px);
+      background-color: #1e40af;
+      color: white;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .course-card:hover .text-blue-900 {
+      color: white;
+    }
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .nav-link {
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #1e40af;
+    }
+    /* تصميم تعبيري للخلفية */
+    #hero {
+      background: linear-gradient(to bottom, #1e40af, #3b82f6);
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 20%);
+      background-size: 20px 20px;
+      animation: rotate 20s linear infinite;
+      opacity: 0.5;
+    }
+    @keyframes rotate {
+      100% { transform: rotate(1turn); }
+    }
+    #about {
+      background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
+      position: relative;
+    }
+    #about::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23dbeafe" fill-opacity="1" d="M0,128L48,112C96,96,192,64,288,74.7C384,85,480,139,576,149.3C672,160,768,128,864,117.3C960,107,1056,117,1152,117.3C1248,117,1344,107,1392,101.3L1440,96V320H1392C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320H0Z"></path></svg>');
+      background-size: cover;
+    }
+    /* أيقونة واتساب ثابتة */
+    .whatsapp-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-icon:hover {
+      transform: scale(1.1);
+    }
+    .whatsapp-icon img {
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+  <!-- Navigation Bar -->
+  <nav class="sticky-nav shadow-md py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-900">أكاديمية فولير</a>
+      <div class="flex gap-6">
+        <a href="#hero" class="nav-link text-lg font-medium">الرئيسية</a>
+        <a href="#about" class="nav-link text-lg font-medium">من نحن</a>
+        <a href="#courses" class="nav-link text-lg font-medium">الدورات</a>
+        <a href="#features" class="nav-link text-lg font-medium">لماذا نحن</a>
+        <a href="#contact" class="nav-link text-lg font-medium">تواصل معنا</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="bg-gradient-to-br from-blue-900 to-indigo-800 text-white text-center fade-in">
+    <div class="container mx-auto px-4">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-pulse">أكاديمية فولير للتطوير المهني</h1>
+      <p class="text-xl md:text-2xl mb-8">مرحبًا بك في رحلتك نحو التميز المهني! نقدم لك تدريبًا معتمدًا يعزز مهاراتك ويفتح أبواب النجاح في عالم العمل الحديث.</p>
+      <a href="#courses" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-200 transition transform hover:scale-105">اكتشف دوراتنا الآن</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-gray-50 text-center fade-in">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-4xl font-bold mb-6 text-blue-900">من نحن</h2>
+      <p class="text-lg leading-relaxed mb-6">
+        أكاديمية فولير للتطوير المهني هي بوابتك نحو مستقبل مهني مشرق. تأسست في إمارة دبي كأول أكاديمية معتمدة تحت اسم "فولير للتدريب في مجال التطوير المهني الإداري"، نهدف إلى تمكين الأفراد والمؤسسات من خلال برامج تدريبية مبتكرة تغطي مجالات الإدارة، الفنون، والتكنولوجيا. مع فريق من الخبراء المتخصصين، نسعى لنشر المعرفة وتحقيق الريادة المهنية بأسلوب يتماشى مع رؤية المستقبل.
+      </p>
+      <div class="text-center">
+        <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-2 rounded-full animate-bounce">ابدأ رحلتك معنا اليوم!</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section id="courses" class="bg-white py-16 px-4 fade-in">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-4xl font-bold text-center mb-12 text-blue-900">دوراتنا المعتمدة</h2>
+      
+      <!-- Professional Courses -->
+      <div class="mb-16">
+        <h3 class="text-3xl font-semibold text-blue-900 mb-8 text-center">الدورات المهنية والإدارية</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">المحاسبة والشؤون المالية</h3>
+            <p class="text-gray-600">تطوير مهاراتك في إدارة الحسابات والتخطيط المالي.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">السكرتارية والأعمال المكتبية</h3>
+            <p class="text-gray-600">إتقان المهارات الإدارية لتحسين الكفاءة المكتبية.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">تأهيل المدربين المهنيين</h3>
+            <p class="text-gray-600">تعلم تقنيات التدريب الفعالة لتصبح مدربًا معتمدًا.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">تطوير الموارد البشرية</h3>
+            <p class="text-gray-600">إدارة المواهب وتعزيز بيئة العمل الإيجابية.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">مجال التأمين</h3>
+            <p class="text-gray-600">فهم شامل لمنتجات وخدمات التأمين.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">القانون</h3>
+            <p class="text-gray-600">استكشاف الأسس القانونية للأعمال التجارية.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">الإدارة العامة</h3>
+            <p class="text-gray-600">مهارات القيادة واتخاذ القرار الاستراتيجي.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">التسويق والمبيعات</h3>
+            <p class="text-gray-600">استراتيجيات التسويق الحديثة لزيادة المبيعات.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">المهارات الاجتماعية والسلوكية</h3>
+            <p class="text-gray-600">تعزيز التواصل والعمل الجماعي.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Technical Courses -->
+      <div>
+        <h3 class="text-3xl font-semibold text-blue-900 mb-8 text-center">الدورات الفنية والمهنية</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">مهارات الحاسوب</h3>
+            <p class="text-gray-600">إتقان البرمجيات والتكنولوجيا الحديثة.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">الزراعة</h3>
+            <p class="text-gray-600">تعلم تقنيات الزراعة المستدامة.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">التصميم والفن المعماري</h3>
+            <p class="text-gray-600">إبداع في تصميم المساحات والمباني.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">البناء والميكانيك</h3>
+            <p class="text-gray-600">مهارات تقنية في البناء والصيانة.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">تصميم الأزياء</h3>
+            <p class="text-gray-600">إبداع في عالم الموضة والتصميم.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">تصفيف الشعر</h3>
+            <p class="text-gray-600">تعلم فنون تصفيف الشعر الحديثة.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">السياحة والضيافة</h3>
+            <p class="text-gray-600">مهارات إدارة الخدمات السياحية.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">الإنتاج الإعلامي</h3>
+            <p class="text-gray-600">إنتاج محتوى إعلامي احترافي.</p>
+          </a>
+          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">خدمات النقل</h3>
+            <p class="text-gray-600">إدارة لوجستيات النقل بكفاءة.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="features" class="bg-gray-100 text-center fade-in">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h2 class="text-4xl font-bold mb-8 text-blue-900">لماذا تختارنا؟</h2>
+      <div class="grid md:grid-cols-3 gap-8 text-right">
+        <div class="bg-white p-6 rounded-lg shadow transform hover:scale-105 transition">
+          <h3 class="text-xl font-semibold mb-2 text-blue-900">برامج معتمدة</h3>
+          <p>جميع برامجنا التدريبية معتمدة رسمياً من الجهات المختصة في دبي.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow transform hover:scale-105 transition">
+          <h3 class="text-xl font-semibold mb-2 text-blue-900">مدربون خبراء</h3>
+          <p>يضم فريقنا نخبة من المدربين المحترفين ذوي الخبرة العالية.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow transform hover:scale-105 transition">
+          <h3 class="text-xl font-semibold mb-2 text-blue-900">تعلم مرن</h3>
+          <p>نقدم جداول تدريب مرنة تناسب جميع الفئات.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-blue-50 text-center fade-in">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-4xl font-bold mb-6 text-blue-900">تواصل معنا</h2>
+      <p class="mb-8 text-lg">نسعد بتواصلكم معنا من خلال وسائل التواصل التالية</p>
+      <div class="grid md:grid-cols-3 gap-6 text-right">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-semibold text-blue-900 mb-2">الموقع</h3>
+          <p>دبي، الإمارات العربية المتحدة</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-semibold text-blue-900 mb-2">رقم الهاتف</h3>
+          <p>+971506770310</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-semibold text-blue-900 mb-2">البريد الإلكتروني</h3>
+          <p>Hamad19744@hotmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white text-center py-6">
+    <p>© 2025 أكاديمية فولير للتطوير المهني. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <!-- أيقونة واتساب ثابتة -->
+  <a href="https://wa.me/971506770310" target="_blank" class="whatsapp-icon">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="تواصل عبر واتساب">
+  </a>
+
+  <script>
+    // Fade-in animation on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
