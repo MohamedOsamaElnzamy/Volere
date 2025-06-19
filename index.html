@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>أكاديمية فولير للتطوير المهني</title>
+  <title> فولير |Volere</title>
   <meta name="description" content="اكتشف أكاديمية فولير للتطوير المهني في دبي، نقدم تدريبًا معتمدًا في الإدارة، الفنون، والتكنولوجيا لتعزيز مهاراتك المهنية.">
   <meta name="keywords" content="تدريب مهني, أكاديمية فولير, تطوير مهارات, دبي, دورات معتمدة">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -117,19 +117,101 @@
       width: 40px;
       height: 40px;
     }
+    /* قائمة منسدلة للموبايل */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #1e40af;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        width: 200px;
+        padding: 1rem;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .nav-link {
+        padding: 0.5rem 0;
+        font-size: 1.2rem;
+      }
+    }
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      text-align: right;
+    }
+    .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .sub-course-card {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      background: #f3f4f6;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .sub-course-card:hover {
+      background: #e5e7eb;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-800">
   <!-- Navigation Bar -->
   <nav class="sticky-nav shadow-md py-4">
     <div class="container mx-auto px-4 flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold text-blue-900">أكاديمية فولير</a>
-      <div class="flex gap-6">
-        <a href="#hero" class="nav-link text-lg font-medium">الرئيسية</a>
-        <a href="#about" class="nav-link text-lg font-medium">من نحن</a>
-        <a href="#courses" class="nav-link text-lg font-medium">الدورات</a>
-        <a href="#features" class="nav-link text-lg font-medium">لماذا نحن</a>
-        <a href="#contact" class="nav-link text-lg font-medium">تواصل معنا</a>
+      <a href="#" class="text-2xl font-bold text-blue-900">فولير | Volere</a>
+      <div class="flex items-center">
+        <div class="md:hidden">
+          <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <a href="#hero" class="nav-link text-lg font-medium">الرئيسية</a>
+          <a href="#about" class="nav-link text-lg font-medium">من نحن</a>
+          <a href="#courses" class="nav-link text-lg font-medium">الدورات</a>
+          <a href="#features" class="nav-link text-lg font-medium">لماذا نحن</a>
+          <a href="#contact" class="nav-link text-lg font-medium">تواصل معنا</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -137,7 +219,7 @@
   <!-- Hero Section -->
   <section id="hero" class="bg-gradient-to-br from-blue-900 to-indigo-800 text-white text-center fade-in">
     <div class="container mx-auto px-4">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-pulse">أكاديمية فولير للتطوير المهني</h1>
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-pulse"> فولير للتطوير المهني</h1>
       <p class="text-xl md:text-2xl mb-8">مرحبًا بك في رحلتك نحو التميز المهني! نقدم لك تدريبًا معتمدًا يعزز مهاراتك ويفتح أبواب النجاح في عالم العمل الحديث.</p>
       <a href="#courses" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-200 transition transform hover:scale-105">اكتشف دوراتنا الآن</a>
     </div>
@@ -148,7 +230,7 @@
     <div class="container mx-auto px-4 max-w-4xl">
       <h2 class="text-4xl font-bold mb-6 text-blue-900">من نحن</h2>
       <p class="text-lg leading-relaxed mb-6">
-        أكاديمية فولير للتطوير المهني هي بوابتك نحو مستقبل مهني مشرق. تأسست في إمارة دبي كأول أكاديمية معتمدة تحت اسم "فولير للتدريب في مجال التطوير المهني الإداري"، نهدف إلى تمكين الأفراد والمؤسسات من خلال برامج تدريبية مبتكرة تغطي مجالات الإدارة، الفنون، والتكنولوجيا. مع فريق من الخبراء المتخصصين، نسعى لنشر المعرفة وتحقيق الريادة المهنية بأسلوب يتماشى مع رؤية المستقبل.
+         فولير للتطوير المهني هي بوابتك نحو مستقبل مهني مشرق. تأسست في إمارة دبي كأول أكاديمية معتمدة تحت اسم "فولير للتدريب في مجال التطوير المهني الإداري"، نهدف إلى تمكين الأفراد والمؤسسات من خلال برامج تدريبية مبتكرة تغطي مجالات الإدارة، الفنون، والتكنولوجيا. مع فريق من الخبراء المتخصصين، نسعى لنشر المعرفة وتحقيق الريادة المهنية بأسلوب يتماشى مع رؤية المستقبل.
       </p>
       <div class="text-center">
         <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-2 rounded-full animate-bounce">ابدأ رحلتك معنا اليوم!</span>
@@ -165,42 +247,42 @@
       <div class="mb-16">
         <h3 class="text-3xl font-semibold text-blue-900 mb-8 text-center">الدورات المهنية والإدارية</h3>
         <div class="grid md:grid-cols-3 gap-8">
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('المحاسبة والشؤون المالية', 'تطوير مهاراتك في إدارة الحسابات والتخطيط المالي.', ['محاسبة مالية متقدمة', 'تحليل مالي', 'إدارة الميزانيات'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">المحاسبة والشؤون المالية</h3>
             <p class="text-gray-600">تطوير مهاراتك في إدارة الحسابات والتخطيط المالي.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('السكرتارية والأعمال المكتبية', 'إتقان المهارات الإدارية لتحسين الكفاءة المكتبية.', ['إدارة المكاتب', 'تنظيم الوقت', 'كتابة التقارير'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">السكرتارية والأعمال المكتبية</h3>
             <p class="text-gray-600">إتقان المهارات الإدارية لتحسين الكفاءة المكتبية.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('تأهيل المدربين المهنيين', 'تعلم تقنيات التدريب الفعالة لتصبح مدربًا معتمدًا.', ['تدريب عملي', 'تصميم الدورات', 'تقييم الأداء'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">تأهيل المدربين المهنيين</h3>
             <p class="text-gray-600">تعلم تقنيات التدريب الفعالة لتصبح مدربًا معتمدًا.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('تطوير الموارد البشرية', 'إدارة المواهب وتعزيز بيئة العمل الإيجابية.', ['توظيف الموظفين', 'تدريب الموارد', 'إدارة النزاعات'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">تطوير الموارد البشرية</h3>
             <p class="text-gray-600">إدارة المواهب وتعزيز بيئة العمل الإيجابية.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('مجال التأمين', 'فهم شامل لمنتجات وخدمات التأمين.', ['تأمين صحي', 'تأمين عقاري', 'تأمين السيارات'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">مجال التأمين</h3>
             <p class="text-gray-600">فهم شامل لمنتجات وخدمات التأمين.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('القانون', 'استكشاف الأسس القانونية للأعمال التجارية.', ['قانون التجارة', 'عقود الأعمال', 'حقوق المستهلك'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">القانون</h3>
             <p class="text-gray-600">استكشاف الأسس القانونية للأعمال التجارية.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('الإدارة العامة', 'مهارات القيادة واتخاذ القرار الاستراتيجي.', ['قيادة الفرق', 'تخطيط استراتيجي', 'إدارة المشاريع'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">الإدارة العامة</h3>
             <p class="text-gray-600">مهارات القيادة واتخاذ القرار الاستراتيجي.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('التسويق والمبيعات', 'استراتيجيات التسويق الحديثة لزيادة المبيعات.', ['تسويق رقمي', 'مبيعات مباشرة', 'تحليل السوق'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">التسويق والمبيعات</h3>
             <p class="text-gray-600">استراتيجيات التسويق الحديثة لزيادة المبيعات.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('المهارات الاجتماعية والسلوكية', 'تعزيز التواصل والعمل الجماعي.', ['مهارات التواصل', 'حل المشكلات', 'عمل جماعي'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">المهارات الاجتماعية والسلوكية</h3>
             <p class="text-gray-600">تعزيز التواصل والعمل الجماعي.</p>
-          </a>
+          </div>
         </div>
       </div>
 
@@ -208,42 +290,42 @@
       <div>
         <h3 class="text-3xl font-semibold text-blue-900 mb-8 text-center">الدورات الفنية والمهنية</h3>
         <div class="grid md:grid-cols-3 gap-8">
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('مهارات الحاسوب', 'إتقان البرمجيات والتكنولوجيا الحديثة.', ['برمجة أساسية', 'تحليل البيانات', 'تصميم الويب'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">مهارات الحاسوب</h3>
             <p class="text-gray-600">إتقان البرمجيات والتكنولوجيا الحديثة.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('الزراعة', 'تعلم تقنيات الزراعة المستدامة.', ['زراعة عضوية', 'إدارة المحاصيل', 'ري الذكي'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">الزراعة</h3>
             <p class="text-gray-600">تعلم تقنيات الزراعة المستدامة.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('التصميم والفن المعماري', 'إبداع في تصميم المساحات والمباني.', ['تصميم داخلي', 'تصميم خارجي', 'رسم معماري'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">التصميم والفن المعماري</h3>
             <p class="text-gray-600">إبداع في تصميم المساحات والمباني.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('البناء والميكانيك', 'مهارات تقنية في البناء والصيانة.', ['هندسة البناء', 'صيانة المعدات', 'تكنولوجيا التشييد'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">البناء والميكانيك</h3>
             <p class="text-gray-600">مهارات تقنية في البناء والصيانة.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('تصميم الأزياء', 'إبداع في عالم الموضة والتصميم.', ['تصميم الأقمشة', 'تفصيل الملابس', 'اتجاهات الموضة'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">تصميم الأزياء</h3>
             <p class="text-gray-600">إبداع في عالم الموضة والتصميم.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('تصفيف الشعر', 'تعلم فنون تصفيف الشعر الحديثة.', ['قص الشعر', 'صبغات متقدمة', 'تسريحات احترافية'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">تصفيف الشعر</h3>
             <p class="text-gray-600">تعلم فنون تصفيف الشعر الحديثة.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('السياحة والضيافة', 'مهارات إدارة الخدمات السياحية.', ['إدارة الفنادق', 'خدمة العملاء', 'تنظيم الرحلات'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">السياحة والضيافة</h3>
             <p class="text-gray-600">مهارات إدارة الخدمات السياحية.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('الإنتاج الإعلامي', 'إنتاج محتوى إعلامي احترافي.', ['إخراج الفيديو', 'مونتاج الصوت', 'كتابة السيناريو'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">الإنتاج الإعلامي</h3>
             <p class="text-gray-600">إنتاج محتوى إعلامي احترافي.</p>
-          </a>
-          <a href="#contact" class="course-card p-6 rounded-lg shadow">
+          </div>
+          <div class="course-card p-6 rounded-lg shadow" onclick="openModal('خدمات النقل', 'إدارة لوجستيات النقل بكفاءة.', ['نقل البضائع', 'إدارة المخازن', 'تخطيط الشحن'])">
             <h3 class="text-xl font-semibold text-blue-900 mb-4">خدمات النقل</h3>
             <p class="text-gray-600">إدارة لوجستيات النقل بكفاءة.</p>
-          </a>
+          </div>
         </div>
       </div>
     </div>
@@ -289,6 +371,26 @@
           <p>Hamad19744@hotmail.com</p>
         </div>
       </div>
+      <!-- Social Media Cards -->
+      <h3 class="text-2xl font-semibold text-blue-900 mb-4 mt-8">تابعنا على وسائل التواصل الاجتماعي</h3>
+      <div class="grid md:grid-cols-4 gap-6 text-right">
+        <a href="https://facebook.com" target="_blank" class="bg-white p-6 rounded-lg shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="فيسبوك" class="w-10 h-10 mr-2">
+          <span>فيسبوك</span>
+        </a>
+        <!-- <a href="https://x.com" target="_blank" class="bg-white p-6 rounded-lg shadow flex items-center justify-center hover:bg-black hover:text-white transition">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/X_icon_2023.svg" alt="إكس" class="w-10 h-10 mr-2">
+          <span>إكس</span>
+        </a> -->
+        <a href="https://youtube.com" target="_blank" class="bg-white p-6 rounded-lg shadow flex items-center justify-center hover:bg-red-600 hover:text-white transition">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="يوتيوب" class="w-10 h-10 mr-2">
+          <span>يوتيوب</span>
+        </a>
+        <a href="https://wa.me/971506770310" target="_blank" class="bg-white p-6 rounded-lg shadow flex items-center justify-center hover:bg-green-600 hover:text-white transition">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="واتساب" class="w-10 h-10 mr-2">
+          <span>واتساب</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -301,6 +403,17 @@
   <a href="https://wa.me/971506770310" target="_blank" class="whatsapp-icon">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="تواصل عبر واتساب">
   </a>
+
+  <!-- Modal -->
+  <div id="courseModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h3 id="modalTitle" class="text-xl font-semibold text-blue-900 mb-2"></h3>
+      <p id="modalDescription" class="mb-4"></p>
+      <div id="subCourses" class="mb-4"></div>
+      <button onclick="scrollToContact()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">تواصل الآن</button>
+    </div>
+  </div>
 
   <script>
     // Fade-in animation on scroll
@@ -325,6 +438,52 @@
         });
       });
     });
+
+    // Toggle menu for mobile
+    function toggleMenu() {
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('active');
+    }
+
+    // Modal Functions
+    function openModal(title, description, subCourses) {
+      const modal = document.getElementById('courseModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+      const subCoursesDiv = document.getElementById('subCourses');
+
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      subCoursesDiv.innerHTML = '';
+
+      subCourses.forEach(subCourse => {
+        const subCourseCard = document.createElement('div');
+        subCourseCard.className = 'sub-course-card';
+        subCourseCard.textContent = subCourse;
+        subCourseCard.onclick = () => scrollToContact();
+        subCoursesDiv.appendChild(subCourseCard);
+      });
+
+      modal.style.display = 'block';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('courseModal');
+      modal.style.display = 'none';
+    }
+
+    function scrollToContact() {
+      closeModal();
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('courseModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    };
   </script>
 </body>
 </html>
