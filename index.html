@@ -140,7 +140,7 @@
         flex-direction: column;
         position: absolute;
         top: 100%;
-        right: 0;
+        left: 0;
         background: rgba(255, 255, 255, 0.95);
         width: 200px;
         padding: 1rem;
@@ -209,11 +209,11 @@
           <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         </div>
         <div class="nav-menu" id="navMenu">
-          <a href="#hero" class="nav-link text-lg font-medium">الرئيسية</a>
-          <a href="#about" class="nav-link text-lg font-medium">من نحن</a>
-          <a href="#courses" class="nav-link text-lg font-medium">الدورات</a>
-          <a href="#features" class="nav-link text-lg font-medium">لماذا نحن</a>
-          <a href="#contact" class="nav-link text-lg font-medium">تواصل معنا</a>
+          <a href="#hero" onclick="toggleMenu()" class="nav-link text-lg font-medium">الرئيسية</a>
+          <a href="#about" onclick="toggleMenu()" class="nav-link text-lg font-medium">من نحن</a>
+          <a href="#courses" onclick="toggleMenu()" class="nav-link text-lg font-medium">الدورات</a>
+          <a href="#features" onclick="toggleMenu()" class="nav-link text-lg font-medium">لماذا نحن</a>
+          <a href="#contact" onclick="toggleMenu()" class="nav-link text-lg font-medium">تواصل معنا</a>
         </div>
       </div>
     </div>
